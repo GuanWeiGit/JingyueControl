@@ -1,4 +1,4 @@
-# RustDesk Guide
+# JingyueControl Guide
 
 ## Project Layout
 
@@ -15,7 +15,7 @@
 * `libs/hbb_common/src/config.rs` all options
 
 ### Key Components
-- **Remote Desktop Protocol**: Custom protocol implemented in `src/rendezvous_mediator.rs` for communicating with rustdesk-server
+- **Remote Desktop Protocol**: Custom protocol implemented in `src/rendezvous_mediator.rs` for communicating with jingyue_control-server
 - **Screen Capture**: Platform-specific screen capture in `libs/scrap/`
 - **Input Handling**: Cross-platform input simulation in `libs/enigo/`
 - **Audio/Video Services**: Real-time audio/video streaming in `src/server/`

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=JingyueControl 鲸跃远控
+NoDisplay=true
+MimeType=x-scheme-handler/jingyue;
+TryExec=jingyue_control
+Exec=jingyue_control %u
+Icon=jingyue_control
+Terminal=false
+Type=Application
+StartupNotify=false
+StartupWMClass=jingyue_control

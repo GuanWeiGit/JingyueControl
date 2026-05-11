@@ -1,19 +1,19 @@
 [Desktop Entry]
-Name=RustDesk
+Name=JingyueControl 鲸跃远控
 GenericName=Remote Desktop
-Comment=Remote Desktop
-Exec=rustdesk %u
-Icon=rustdesk
+Comment=JingyueControl Remote Desktop
+Exec=jingyue_control %u
+Icon=jingyue_control
 Terminal=false
 Type=Application
 StartupNotify=true
 Categories=Network;RemoteAccess;GTK;
-Keywords=internet;linux;dart;rust;remote-control;p2p;teamviewer;rust-lang;rdp;remote-desktop;vnc;
+Keywords=internet;remote-control;p2p;remote-desktop;
 Actions=new-window;
-StartupWMClass=rustdesk
+StartupWMClass=jingyue_control
 
 X-Desktop-File-Install-Version=0.23
 
 [Desktop Action new-window]
 Name=Open a New Window
-Exec=rustdesk %u
+Exec=jingyue_control %u
