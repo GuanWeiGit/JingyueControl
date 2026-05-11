@@ -950,7 +950,7 @@ pub fn check_software_update() {
 }
 
 // No need to check `danger_accept_invalid_cert` for now.
-// Because the url is always `https://api.rustdesk.com/version/latest`.
+// Because the url is always `https://api.jingyue.rqrt2122.cn/version/latest`.
 #[tokio::main(flavor = "current_thread")]
 pub async fn do_check_software_update() -> hbb_common::ResultType<()> {
     let (request, url) =
@@ -1081,13 +1081,13 @@ fn get_api_server_(api: String, custom: String) -> String {
             return format!("http://{}", s);
         }
     }
-    "https://admin.rustdesk.com".to_owned()
+    "https://jingyue.rqrt2122.cn".to_owned()
 }
 
 #[inline]
 pub fn is_public(url: &str) -> bool {
     let url = url.to_ascii_lowercase();
-    url.contains("rustdesk.com/") || url.ends_with("rustdesk.com")
+    url.contains("jyyk.com/") || url.ends_with("jingyue.rqrt2122.cn")
 }
 
 pub fn get_udp_punch_enabled() -> bool {
@@ -2763,27 +2763,27 @@ mod tests {
 
     #[test]
     fn test_is_public() {
-        // Test URLs containing "rustdesk.com/"
-        assert!(is_public("https://rustdesk.com/"));
-        assert!(is_public("https://www.rustdesk.com/"));
-        assert!(is_public("https://api.rustdesk.com/v1"));
+        // Test URLs containing "jingyue.rqrt2122.cn/"
+        assert!(is_public("https://jingyue.rqrt2122.cn/"));
+        assert!(is_public("https://jingyue.rqrt2122.cn/"));
+        assert!(is_public("https://api.jingyue.rqrt2122.cn/v1"));
         assert!(is_public("https://API.RUSTDESK.COM/v1"));
-        assert!(is_public("https://rustdesk.com/path"));
+        assert!(is_public("https://jingyue.rqrt2122.cn/path"));
 
-        // Test URLs ending with "rustdesk.com"
-        assert!(is_public("rustdesk.com"));
-        assert!(is_public("https://rustdesk.com"));
+        // Test URLs ending with "jingyue.rqrt2122.cn"
+        assert!(is_public("jingyue.rqrt2122.cn"));
+        assert!(is_public("https://jingyue.rqrt2122.cn"));
         assert!(is_public("https://RustDesk.com"));
-        assert!(is_public("http://www.rustdesk.com"));
-        assert!(is_public("https://api.rustdesk.com"));
+        assert!(is_public("http://jingyue.rqrt2122.cn"));
+        assert!(is_public("https://api.jingyue.rqrt2122.cn"));
 
         // Test non-public URLs
         assert!(!is_public("https://example.com"));
         assert!(!is_public("https://custom-server.com"));
         assert!(!is_public("http://192.168.1.1"));
         assert!(!is_public("localhost"));
-        assert!(!is_public("https://rustdesk.computer.com"));
-        assert!(!is_public("rustdesk.comhello.com"));
+        assert!(!is_public("https://jingyue.rqrt2122.cnputer.com"));
+        assert!(!is_public("jingyue.rqrt2122.cnhello.com"));
     }
 
     #[test]
@@ -2801,8 +2801,8 @@ mod tests {
             "https://admin.example.com"
         ));
         assert!(!should_use_tcp_proxy_for_api_url(
-            "https://admin.rustdesk.com/api/login",
-            "https://admin.rustdesk.com"
+            "https://jingyue.rqrt2122.cn/api/login",
+            "https://jingyue.rqrt2122.cn"
         ));
         assert!(!should_use_tcp_proxy_for_api_url(
             "https://admin.example.com/api/login",
