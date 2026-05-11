@@ -61,8 +61,7 @@ def get_features(args):
         features.append('vram')
     if args.flutter:
         features.append('flutter')
-    if args.unix_file_copy_paste:
-        features.append('unix-file-copy-paste')
+    # unix-file-copy-paste is a Linux feature, not needed for Windows/Android
     print("features:", features)
     return features
 
