@@ -1,16 +1,16 @@
 #include <dlfcn.h>
 #include "my_application.h"
 
-#define RUSTDESK_LIB_PATH "librustdesk.so"
-typedef bool (*RustDeskCoreMain)();
+#define JINGYUE_LIB_PATH "libjingyue_control.so"
+typedef bool (*JingyueControlCoreMain)();
 bool gIsConnectionManager = false;
 
 void print_help_install_pkg(const char* so);
 
-bool flutter_rustdesk_core_main() {
-   void* librustdesk = dlopen(RUSTDESK_LIB_PATH, RTLD_LAZY);
-   if (!librustdesk) {
-      fprintf(stderr,"Failed to load \"librustdesk.so\"\n");
+bool flutter_jingyue_control_core_main() {
+   void* libjingyue_control = dlopen(JINGYUE_LIB_PATH, RTLD_LAZY);
+   if (!libjingyue_control) {
+      fprintf(stderr,"Failed to load \"libjingyue_control.so\"\n");
       char* error;
       if ((error = dlerror()) != nullptr) {
         fprintf(stderr, "%s\n", error);
@@ -24,17 +24,17 @@ bool flutter_rustdesk_core_main() {
       }
      return false;
    }
-   auto core_main = (RustDeskCoreMain) dlsym(librustdesk,"rustdesk_core_main");
+   auto core_main = (JingyueControlCoreMain) dlsym(libjingyue_control,"jingyue_control_core_main");
    char* error;
    if ((error = dlerror()) != nullptr) {
-       fprintf(stderr, "Program entry \"rustdesk_core_main\" is not found: %s\n", error);
+       fprintf(stderr, "Program entry \"jingyue_control_core_main\" is not found: %s\n", error);
        return false;
    }
    return core_main();
 }
 
 int main(int argc, char** argv) {
-  if (!flutter_rustdesk_core_main()) {
+  if (!flutter_jingyue_control_core_main()) {
       return 0;
   }
   for (int i = 0; i < argc; i++) {
@@ -97,7 +97,7 @@ int is_command_exists(const char* command) {
     return 0;
 }
 
-// We do not automatically search pkg 
+// We do not automatically search pkg
 // as the search process can be time consuming and update may be required.
 void print_help_install_pkg(const char* so)
 {
@@ -116,8 +116,8 @@ void print_help_install_pkg(const char* so)
   const PkgMgrSearch *mgr_search = g_mgrs;
   while (mgr_search->mgr != NULL) {
       if (is_command_exists(mgr_search->mgr) == 1) {
-        fprintf(stderr, "Please run \"%s %s\" to search and install the pkg.\n", mgr_search->search, so);
-        break;
+          fprintf(stderr, "Please run \"%s %s\" to search and install the pkg.\n", mgr_search->search, so);
+          break;
       }
       mgr_search++;
   }

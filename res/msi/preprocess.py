@@ -27,15 +27,15 @@ g_arpsystemcomponent = {
     },
     "Contact": {
         "msi": "ARPCONTACT",
-        "v": "https://github.com/rustdesk/rustdesk",
+        "v": "https://jingyue.rqrt2122.cn",
     },
     "HelpLink": {
         "msi": "ARPHELPLINK",
-        "v": "https://github.com/rustdesk/rustdesk/issues/",
+        "v": "https://jingyue.rqrt2122.cn",
     },
     "ReadMe": {
         "msi": "ARPREADME",
-        "v": "https://github.com/rustdesk/rustdesk",
+        "v": "https://jingyue.rqrt2122.cn",
     },
 }
 
@@ -48,7 +48,7 @@ def make_parser():
         "-d",
         "--dist-dir",
         type=str,
-        default="../../rustdesk",
+        default="../../jingyue_control",
         help="The dist directory to install.",
     )
     parser.add_argument(

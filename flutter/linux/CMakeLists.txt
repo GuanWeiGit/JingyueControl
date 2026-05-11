@@ -127,7 +127,7 @@ apply_standard_settings(${BINARY_NAME})
 target_link_libraries(${BINARY_NAME} PRIVATE flutter)
 target_link_libraries(${BINARY_NAME} PRIVATE PkgConfig::GTK)
 target_link_libraries(${BINARY_NAME} PRIVATE ${CMAKE_DL_LIBS})
-# target_link_libraries(${BINARY_NAME} PRIVATE librustdesk)
+# target_link_libraries(${BINARY_NAME} PRIVATE libjingyue_control)
 
 # Wayland support for keyboard shortcuts inhibit
 if(HAS_KEYBOARD_SHORTCUTS_INHIBIT)
@@ -185,13 +185,13 @@ foreach(bundled_library ${PLUGIN_BUNDLED_LIBRARIES})
 endforeach(bundled_library)
 
 # flutter_rust_bridge
-set(RUSTDESK_LIB_BUILD_TYPE $<IF:$<CONFIG:Debug>,debug,release>)
-string(TOLOWER ${CMAKE_BUILD_TYPE} ${RUSTDESK_LIB_BUILD_TYPE})
-message(STATUS "rustdesk lib build type: ${RUSTDESK_LIB_BUILD_TYPE}")
+set(JINGYUE_LIB_BUILD_TYPE $<IF:$<CONFIG:Debug>,debug,release>)
+string(TOLOWER ${CMAKE_BUILD_TYPE} ${JINGYUE_LIB_BUILD_TYPE})
+message(STATUS "jingyue_control lib build type: ${JINGYUE_LIB_BUILD_TYPE}")
 
-set(RUSTDESK_LIB "../../target/${RUSTDESK_LIB_BUILD_TYPE}/liblibrustdesk.so")
-install(FILES "${RUSTDESK_LIB}" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
-COMPONENT Runtime RENAME librustdesk.so)
+set(JINGYUE_LIB "../../target/${JINGYUE_LIB_BUILD_TYPE}/liblibjingyue_control.so")
+install(FILES "${JINGYUE_LIB}" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
+COMPONENT Runtime RENAME libjingyue_control.so)
 
 # Fully re-copy the assets directory on each build to avoid having stale files
 # from a previous install.

@@ -101,11 +101,11 @@ if(PLUGIN_BUNDLED_LIBRARIES)
 endif()
 
 # flutter_rust_bridge
-set(RUSTDESK_LIB_BUILD_TYPE $<IF:$<CONFIG:Debug>,debug,release>)
-message(STATUS "rustdesk lib build type: ${RUSTDESK_LIB_BUILD_TYPE}")
-set(RUSTDESK_LIB "../../target/${RUSTDESK_LIB_BUILD_TYPE}/librustdesk.dll")
-install(FILES "${RUSTDESK_LIB}" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
-COMPONENT Runtime RENAME librustdesk.dll)
+set(JINGYUE_LIB_BUILD_TYPE $<IF:$<CONFIG:Debug>,debug,release>)
+message(STATUS "jingyue_control lib build type: ${JINGYUE_LIB_BUILD_TYPE}")
+set(JINGYUE_LIB "../../target/${JINGYUE_LIB_BUILD_TYPE}/libjingyue_control.dll")
+install(FILES "${JINGYUE_LIB}" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
+COMPONENT Runtime RENAME libjingyue_control.dll)
 
 # Fully re-copy the assets directory on each build to avoid having stale files
 # from a previous install.
