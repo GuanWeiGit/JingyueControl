@@ -1,5 +1,5 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: RustDesk <support@jingyue.rqrt2122.cn>
+From: JingyueControl <info@jingyue.rqrt2122.cn>
 Date: Fri, 1 Nov 2025 08:00:00 +0000
 Subject: [PATCH] Fix CVBufferCopyAttachments crash on macOS Big Sur
 
@@ -56,5 +56,4 @@ index 0000000000..1111111111 100644
 
      // Check that the target is lower than macOS 12 / iOS 15 / tvOS 15
 --
-2.43.0
-
+2.43.0.windows.1
